@@ -264,7 +264,7 @@ class Shopee():
     def enterProduce(self,num):
         id = 1
         n = 1
-        pagenum = 1
+        pagenum = 0
         # 判斷起始頁
         if self.sp != '':
             url = browser.current_url
@@ -284,11 +284,8 @@ class Shopee():
                     time.sleep(5)
 
                     # 變更介面文字
-                    if self.sp != '':
-                        Nowtext.config(text="當前位於第"+str(pagenum+1)+"頁，第"+str(id)+"項")
-                    else:
-                        Nowtext.config(text="當前位於第"+str(pagenum)+"頁，第"+str(id)+"項")
-                    
+                    Nowtext.config(text="當前位於第"+str(pagenum+1)+"頁，第"+str(id)+"項")
+                   
                     self.WaitforElement('//*[@id="main"]/div/div[3]/div/div[4]/div[2]/div/div[2]/div['+str(id)+']')
                     browser.find_element_by_xpath('//*[@id="main"]/div/div[3]/div/div[4]/div[2]/div/div[2]/div['+str(id)+']').click()
 
@@ -491,7 +488,7 @@ class loginWindows():
     def loginBtn(self):
         user = input1.get()
         passwd = input2.get()
-        if user == 'root' and passwd == '': # er54wsddvgwqa
+        if user == 'root' and passwd == 'er54wsddvgwqa': # er54wsddvgwqa
             pass
         else:
             messagebox.showerror('錯誤','帳號或密碼錯誤 !')
@@ -581,7 +578,12 @@ class Setup():
         # 建立按紐(儲存)
         global btn1
         btn1 = tk.Button(windows2,font=('Arial', 18),text='儲存狀態',command=self.btn1Control)
-        btn1.place(relx=0.4,rely=0.85)
+        btn1.place(relx=0.2,rely=0.85)
+
+        # 建立按紐(撤銷授權)
+        global btn_delete
+        btn_delete = tk.Button(windows2,font=('Arial', 18),text='撤銷授權',command=self.btn_delete,background="red")
+        btn_delete.place(relx=0.6,rely=0.85)
         
         # 建立按紐(時間碼)
         global btn3
@@ -599,6 +601,21 @@ class Setup():
 
     def btn2Control(self):
         d = dialogWindows('序號輸入框')
+
+    def btn_delete(self):
+        ans = messagebox.askokcancel('警告','當您撤銷授權後，必須重新授權才可使用本軟體，是否繼續執行?')
+        if ans == True:
+            try:
+                os.remove('C:\\Program Files (x86)\\ShopeeConteoller.json')
+                messagebox.showinfo('撤銷完成','已將授權徹底移除 !!!')
+                os._exit(0)
+            except PermissionError:
+                messagebox.showerror('權限不足','請以裝置管理員執行本軟體 !!')
+                os._exit(0)
+            except:
+                messagebox.showerror('授權檔案無效','本軟體尚未授權，無須撤銷 !!')
+        else:
+            pass
 
 # ===================================================================
 # ///////////////////////////////////////////////////////////////////
