@@ -498,7 +498,7 @@ class loginWindows():
 
     def readAll():
         try:
-            with open('C:\\Program Files (x86)\\ShopeeConteoller.json','r') as f:
+            with open('C:\\Program Files (x86)\\ShopeeConteoller3.json','r') as f:
                 data = json.load(f)
                 return data
         except:
@@ -506,7 +506,7 @@ class loginWindows():
 
     def setFileData(content):
         try:
-            with open('C:\\Program Files (x86)\\ShopeeConteoller.json','w') as f:
+            with open('C:\\Program Files (x86)\\ShopeeConteoller3.json','w') as f:
                 data = json.dumps(content)
                 f.write(data)
         except:
@@ -515,7 +515,7 @@ class loginWindows():
     
     def getFileData(key):
         try:
-            with open('C:\\Program Files (x86)\\ShopeeConteoller.json','r') as f:
+            with open('C:\\Program Files (x86)\\ShopeeConteoller3.json','r') as f:
                 data = json.load(f)
                 return data[key]
         except:
@@ -606,7 +606,7 @@ class Setup():
         ans = messagebox.askokcancel('警告','當您撤銷授權後，必須重新授權才可使用本軟體，是否繼續執行?')
         if ans == True:
             try:
-                os.remove('C:\\Program Files (x86)\\ShopeeConteoller.json')
+                os.remove('C:\\Program Files (x86)\\ShopeeConteoller3.json')
                 messagebox.showinfo('撤銷完成','已將授權徹底移除!!!')
                 os._exit(0)
             except PermissionError:
@@ -711,7 +711,7 @@ class frame():
         # 檢查權限
         try:
             if not loginWindows.getFileData('tkeyStatus') or loginWindows.getFileData('expiryDate') == '':
-                with open('C:\\Program Files (x86)\\ShopeeConteoller.json','w') as f:
+                with open('C:\\Program Files (x86)\\ShopeeConteoller3.json','w') as f:
                     mdata ={'expiryDate': dialogWindows.getNowTime(),'tkeyStatus':False,'defult_text':'','classes':'','page':'','num':'','content':'','times':''}
                     data = json.dumps(mdata)
                     f.write(data)
