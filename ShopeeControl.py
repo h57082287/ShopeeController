@@ -547,7 +547,7 @@ class Setup():
 
         # 說明文字(說明)
         global text1
-        text1 = tk.Label(windows2,text='測試版',font=('Arial', 18))
+        text1 = tk.Label(windows2,text='正式版',font=('Arial', 18))
         text1.place(relx=0.5,rely=0.1)
 
         # 說明文字(時間)
