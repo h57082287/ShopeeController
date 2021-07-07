@@ -607,7 +607,7 @@ class Setup():
         if ans == True:
             try:
                 os.remove('C:\\Program Files (x86)\\ShopeeConteoller.json')
-                messagebox.showinfo('撤銷完成','已將授權徹底移除 !!!')
+                messagebox.showinfo('撤銷完成','已將授權徹底移除!!!')
                 os._exit(0)
             except PermissionError:
                 messagebox.showerror('權限不足','請以裝置管理員執行本軟體 !!')
