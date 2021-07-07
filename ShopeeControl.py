@@ -557,7 +557,7 @@ class Setup():
 
         # 說明文字(說明)
         global text5
-        text5 = tk.Label(windows2,text="30天版",font=('Arial', 18))
+        text5 = tk.Label(windows2,text="3天版",font=('Arial', 18))
         text5.place(relx=0.5,rely=0.2)
 
         # 說明文字(說明)
@@ -688,7 +688,7 @@ class dialogWindows():
             ntp = ntplib.NTPClient()
             respone = ntp.request('pool.ntp.org')
             date = time.strftime('%Y-%m-%d',time.localtime(respone.tx_time))
-            date = str(datetime.datetime.strptime(date,'%Y-%m-%d') + datetime.timedelta(days=30))
+            date = str(datetime.datetime.strptime(date,'%Y-%m-%d') + datetime.timedelta(days=3))
             print(date[:10])
             return date[:10]
         except:
