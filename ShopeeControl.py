@@ -498,7 +498,7 @@ class loginWindows():
 
     def readAll():
         try:
-            with open('C:\\Program Files (x86)\\ShopeeConteoller30.json','r') as f:
+            with open('C:\\Program Files (x86)\\ShopeeConteoller3.json','r') as f:
                 data = json.load(f)
                 return data
         except:
@@ -506,7 +506,7 @@ class loginWindows():
 
     def setFileData(content):
         try:
-            with open('C:\\Program Files (x86)\\ShopeeConteoller30.json','w') as f:
+            with open('C:\\Program Files (x86)\\ShopeeConteoller3.json','w') as f:
                 data = json.dumps(content)
                 f.write(data)
         except:
@@ -515,7 +515,7 @@ class loginWindows():
     
     def getFileData(key):
         try:
-            with open('C:\\Program Files (x86)\\ShopeeConteoller30.json','r') as f:
+            with open('C:\\Program Files (x86)\\ShopeeConteoller3.json','r') as f:
                 data = json.load(f)
                 return data[key]
         except:
@@ -557,7 +557,7 @@ class Setup():
 
         # 說明文字(說明)
         global text5
-        text5 = tk.Label(windows2,text="30天版",font=('Arial', 18))
+        text5 = tk.Label(windows2,text="3天版",font=('Arial', 18))
         text5.place(relx=0.5,rely=0.2)
 
         # 說明文字(說明)
@@ -688,7 +688,7 @@ class dialogWindows():
             ntp = ntplib.NTPClient()
             respone = ntp.request('pool.ntp.org')
             date = time.strftime('%Y-%m-%d',time.localtime(respone.tx_time))
-            date = str(datetime.datetime.strptime(date,'%Y-%m-%d') + datetime.timedelta(days=30))
+            date = str(datetime.datetime.strptime(date,'%Y-%m-%d') + datetime.timedelta(days=3))
             print(date[:10])
             return date[:10]
         except:
@@ -711,7 +711,7 @@ class frame():
         # 檢查權限
         try:
             if not loginWindows.getFileData('tkeyStatus') or loginWindows.getFileData('expiryDate') == '':
-                with open('C:\\Program Files (x86)\\ShopeeConteoller30.json','w') as f:
+                with open('C:\\Program Files (x86)\\ShopeeConteoller3.json','w') as f:
                     mdata ={'expiryDate': dialogWindows.getNowTime(),'tkeyStatus':False,'defult_text':'','classes':'','page':'','num':'','content':'','times':''}
                     data = json.dumps(mdata)
                     f.write(data)
