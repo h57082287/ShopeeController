@@ -488,7 +488,7 @@ class loginWindows():
     def loginBtn(self):
         user = input1.get()
         passwd = input2.get()
-        if user == 'root' and passwd == 'er54wsddvgwqa': # er54wsddvgwqa
+        if user == 'root' and passwd == 'zzzz037921661': # zzzz037921661
             pass
         else:
             messagebox.showerror('錯誤','帳號或密碼錯誤 !')
