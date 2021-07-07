@@ -900,7 +900,10 @@ class frame():
     
     def delteBrowser(self):
         windows.destroy()
-        browser.quit()
+        try:
+            browser.quit()
+        except:
+            pass
         
 # -------------------------------------------------------------------
 
