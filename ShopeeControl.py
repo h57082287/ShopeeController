@@ -634,7 +634,7 @@ class dialogWindows():
 
         # 輸入文字
         global inputa
-        inputa = tk.Entry(windows3,font=('Arial', 18),show="*")
+        inputa = tk.Entry(windows3,font=('Arial', 18),show="*",takefocus=True)
         inputa.place(relx=0.05,rely=0.2)
         
         # 輸入(確認)
